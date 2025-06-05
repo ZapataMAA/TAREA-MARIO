@@ -35,7 +35,27 @@ void pausa_solams(void){
     TCNT0=0;
     while(!(TIFR0&(1<<OCF0A)));
     TIFR0|=(1<<OCF0A);
+}
 
+void pausa_lams(void){
+    OCR0A=141;
+    TCNT0=0;
+    while(!(TIFR0&(1<<OCF0A)));
+    TIFR0|=(1<<OCF0A);
+}
+
+void pausa_fams(void){
+    OCR0A=178;
+    TCNT0=0;
+    while(!(TIFR0&(1<<OCF0A)));
+    TIFR0|=(1<<OCF0A);
+}
+
+void pausa_faams(void){
+    OCR0A=168;
+    TCNT0=0;
+    while(!(TIFR0&(1<<OCF0A)));
+    TIFR0|=(1<<OCF0A);
 }
 
 int main(void){
@@ -98,4 +118,4 @@ int main(void){
     }
 
   return 0;
-}
+} 
