@@ -58,6 +58,20 @@ void pausa_faams(void){
     TIFR0|=(1<<OCF0A);
 }
 
+void pausa_sims(void){
+    OCR0A=126;
+    TCNT0=0;
+    while(!(TIFR0&(1<<OCF0A)));
+    TIFR0|=(1<<OCF0A);
+}
+
+void pausa_rems(void){
+    OCR0A=212;
+    TCNT0=0;
+    while(!(TIFR0&(1<<OCF0A)));
+    TIFR0|=(1<<OCF0A);
+}
+
 int main(void){
     config_timer();
     DDRB|=(1<<PB0);
@@ -99,14 +113,13 @@ int main(void){
      PORTB&=~(0x01);
      _delay_ms(250);
 
-     
-
   for (int i =0;i<392;i++){
       PORTB^=0x01;
       pausa_solams();
      }
      PORTB&=~(0x01);
      _delay_ms(1);
+
   for (int i =0;i<196;i++){
       PORTB^=0x01;
       pausa_solms();
@@ -114,8 +127,244 @@ int main(void){
      PORTB&=~(0x01);
 
      _delay_ms(1000);
+    
+// 2
+
+    for (int i =0;i<220;i++){
+      PORTB^=0x01;
+      pausa_lams();
+     }
+     PORTB&=~(0x01);
+     _delay_ms(1);
+
+    for (int i =0;i<220;i++){
+      PORTB^=0x01;
+      pausa_lams();
+     }
+     PORTB&=~(0x01);
+     _delay_ms(1);
+     
+     for (int i =0;i<66;i++){
+      PORTB^=0x01;
+      pausa_doms();
+     }
+     PORTB&=~(0x01);
+     _delay_ms(1);
+     for (int i =0;i<220;i++){
+      PORTB^=0x01;
+      pausa_lams();
+     }
+     PORTB&=~(0x01);
+     _delay_ms(1);
+     for (int i =0;i<196;i++){
+      PORTB^=0x01;
+      pausa_solms();
+     }
+     PORTB&=~(0x01);
+     _delay_ms(1);
+     for (int i =0;i<83;i++){
+      PORTB^=0x01;
+      pausa_mims();
+     }
+     PORTB&=~(0x01);
+     _delay_ms(250);
+
+//3
+
+     for (int i =0;i<66;i++){
+      PORTB^=0x01;
+      pausa_doms();
+     }
+     PORTB&=~(0x01);
+     _delay_ms(1);
+     for (int i =0;i<245;i++){
+      PORTB^=0x01;
+      pausa_sims();
+     }
+     PORTB&=~(0x01);
+     _delay_ms(1);
+     for (int i =0;i<220;i++){
+      PORTB^=0x01;
+      pausa_lams();
+     }
+     PORTB&=~(0x01);
+     _delay_ms(1);
+     for (int i =0;i<196;i++){
+      PORTB^=0x01;
+      pausa_solms();
+     }
+     PORTB&=~(0x01);
+     _delay_ms(1);
+     for (int i =0;i<83;i++){
+      PORTB^=0x01;
+      pausa_mims();
+     }
+     PORTB&=~(0x01);
+     _delay_ms(1);
+
+//4
+
+     for (int i =0;i<66;i++){
+      PORTB^=0x01;
+      pausa_doms();
+     }
+     PORTB&=~(0x01);
+     _delay_ms(1);
+     for (int i =0;i<147;i++){
+      PORTB^=0x01;
+      pausa_rems();
+     }
+     PORTB&=~(0x01);
+     _delay_ms(1);
+     for (int i =0;i<83;i++){
+      PORTB^=0x01;
+      pausa_mims();
+     }
+     PORTB&=~(0x01);
+     _delay_ms(1);
+     for (int i =0;i<66;i++){
+      PORTB^=0x01;
+      pausa_doms();
+     }
+     PORTB&=~(0x01);
+     _delay_ms(1);
+     for (int i =0;i<220;i++){
+      PORTB^=0x01;
+      pausa_lams();
+     }
+     PORTB&=~(0x01);
+     _delay_ms(1);
+     for (int i =0;i<245;i++){
+      PORTB^=0x01;
+      pausa_sims();
+     }
+     PORTB&=~(0x01);
+     _delay_ms(1000);
+
+//5
+
+     for (int i =0;i<83;i++){
+      PORTB^=0x01;
+      pausa_mims();
+     }
+     PORTB&=~(0x01);
+     _delay_ms(1);
+     for (int i =0;i<175;i++){
+      PORTB^=0x01;
+      pausa_fams();
+     }
+     PORTB&=~(0x01);
+     _delay_ms(1);
+     for (int i =0;i<349;i++){
+      PORTB^=0x01;
+      pausa_faams();
+     }
+     PORTB&=~(0x01);
+     _delay_ms(1);
+     for (int i =0;i<196;i++){
+      PORTB^=0x01;
+      pausa_solms();
+     }
+     PORTB&=~(0x01);
+     _delay_ms(1);
+     for (int i =0;i<83;i++){
+      PORTB^=0x01;
+      pausa_mims();
+     }
+     PORTB&=~(0x01);
+     _delay_ms(1);
+     for (int i =0;i<66;i++){
+      PORTB^=0x01;
+      pausa_doms();
+     }
+     PORTB&=~(0x01);
+     _delay_ms(1);
+     for (int i =0;i<147;i++){
+      PORTB^=0x01;
+      pausa_rems();
+     }
+     PORTB&=~(0x01);
+     _delay_ms(1);
+     for (int i =0;i<245;i++){
+      PORTB^=0x01;
+      pausa_sims();
+     }
+     PORTB&=~(0x01);
+     _delay_ms(1);
+
+//6
+
+     for (int i =0;i<66;i++){
+      PORTB^=0x01;
+      pausa_doms();
+     }
+     PORTB&=~(0x01);
+     _delay_ms(1);
+     for (int i =0;i<83;i++){
+      PORTB^=0x01;
+      pausa_mims();
+     }
+     PORTB&=~(0x01);
+     _delay_ms(1);
+     for (int i =0;i<196;i++){
+      PORTB^=0x01;
+      pausa_solms();
+     }
+     PORTB&=~(0x01);
+     _delay_ms(1);
+     for (int i =0;i<220;i++){
+      PORTB^=0x01;
+      pausa_lams();
+     }
+     PORTB&=~(0x01);
+     _delay_ms(1000);
+
+//7
+
+     for (int i =0;i<349;i++){
+      PORTB^=0x01;
+      pausa_faams();
+     }
+     PORTB&=~(0x01);
+     _delay_ms(1);
+     for (int i =0;i<196;i++){
+      PORTB^=0x01;
+      pausa_solms();
+     }
+     PORTB&=~(0x01);
+     _delay_ms(1);
+     for (int i =0;i<392;i++){
+      PORTB^=0x01;
+      pausa_solams();
+     }
+     PORTB&=~(0x01);
+     _delay_ms(1);
+     for (int i =0;i<220;i++){
+      PORTB^=0x01;
+      pausa_lams();
+     }
+     PORTB&=~(0x01);
+     _delay_ms(1);
+     for (int i =0;i<175;i++){
+      PORTB^=0x01;
+      pausa_fams();
+     }
+     PORTB&=~(0x01);
+     _delay_ms(1);
+     for (int i =0;i<220;i++){
+      PORTB^=0x01;
+      pausa_lams();
+     }
+     PORTB&=~(0x01);
+     _delay_ms(1);
+     for (int i =0;i<66;i++){
+      PORTB^=0x01;
+      pausa_doms();
+     }
+     PORTB&=~(0x01);
+     _delay_ms(1000);
+  
+  return 0;
 
     }
-
-  return 0;
 } 
