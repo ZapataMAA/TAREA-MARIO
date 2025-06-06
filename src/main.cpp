@@ -38,35 +38,35 @@ void pausa_solams(void){
 }
 
 void pausa_lams(void){
-    OCR0A=141;
+    OCR0A=70;
     TCNT0=0;
     while(!(TIFR0&(1<<OCF0A)));
     TIFR0|=(1<<OCF0A);
 }
 
 void pausa_fams(void){
-    OCR0A=178;
+    OCR0A=44;
     TCNT0=0;
     while(!(TIFR0&(1<<OCF0A)));
     TIFR0|=(1<<OCF0A);
 }
 
 void pausa_faams(void){
-    OCR0A=168;
+    OCR0A=41;
     TCNT0=0;
     while(!(TIFR0&(1<<OCF0A)));
     TIFR0|=(1<<OCF0A);
 }
 
 void pausa_sims(void){
-    OCR0A=126;
+    OCR0A=62;
     TCNT0=0;
     while(!(TIFR0&(1<<OCF0A)));
     TIFR0|=(1<<OCF0A);
 }
 
 void pausa_rems(void){
-    OCR0A=212;
+    OCR0A=52;
     TCNT0=0;
     while(!(TIFR0&(1<<OCF0A)));
     TIFR0|=(1<<OCF0A);
@@ -110,7 +110,7 @@ int main(void){
       PORTB^=0x01;
       pausa_mims();
      }
-     PORTB&=~(0x01);
+     PORTB&=~(0x01); 
      _delay_ms(250);
 
   for (int i =0;i<392;i++){
@@ -188,7 +188,7 @@ int main(void){
       pausa_lams();
      }
      PORTB&=~(0x01);
-     _delay_ms(1);
+     _delay_ms(250);
      for (int i =0;i<196;i++){
       PORTB^=0x01;
       pausa_solms();
